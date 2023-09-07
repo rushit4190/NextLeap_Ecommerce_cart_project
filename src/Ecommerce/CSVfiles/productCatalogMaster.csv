@@ -1,0 +1,23 @@
+11,Jean_lightGrey,Available,1100.0,50.0,15
+22,Formal_grey,Available,1200.0,250.0,10
+12,Jean_black,Available,1300.0,200.0,20
+23,Formal_white,Out of Stock,1150.0,0.0,null
+13,Jean_white,Out of Stock,1500.0,600.0,null
+14,Shirt_red,Available,400.0,10.0,10
+15,Shirt_black,Available,700.0,50.0,30
+16,Shirt_blue,Available,500.0,30.0,15
+17,Shirt_white,Available,800.0,50.0,20
+18,Shirt_yellow,Out of Stock,500.0,50.0,null
+19,Shirt_pink,Available,450.0,0.0,5
+1,T-shirt_red,Available,300.0,20.0,15
+2,T-shirt_blue,Available,350.0,30.0,10
+3,T-shirt_black,Available,500.0,40.0,20
+4,T-shirt_pink,Available,400.0,30.0,5
+5,T-shirt_green,Out of Stock,500.0,80.0,null
+6,T-shirt_white,Available,600.0,50.0,10
+7,Jean_lightBlue,Available,800.0,30.0,10
+8,Jean_darkBlue,Available,900.0,50.0,30
+9,Jean_grey,Available,1000.0,70.0,10
+20,Formal_black,Available,1000.0,50.0,20
+10,Jean_brown,Available,1200.0,100.0,5
+21,Formal_blue,Available,1100.0,150.0,15
