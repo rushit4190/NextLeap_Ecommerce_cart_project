@@ -6,27 +6,28 @@ import java.util.Map;
 
 public class Cart implements Serializable {
 
-    private Map<String,CartItem> cartItems; // ProductId -> CartItem
+    private Map<String,CartItem> cartItems = new HashMap<>(); // ProductId -> CartItem
+
+    private String cartId;
 
     private String userId; // to identify cart
 
-    private double totalCartValue;
+    private double totalCartValue = 0.0;
 
-    public Cart(){
-        if(cartItems == null){
-            this.cartItems = new HashMap<>();
-        }
+
+    public Cart(String cartId, String userId){
+        this.cartId = cartId;
+        this.userId = userId;
     }
-
-
-
 
 
     public Map<String, CartItem> getCartItems() {
         return cartItems;
     }
 
-    public String getUserIdCart() { return userId ;}
+    public String getUserId() { return userId ;}
+
+    public String getCartId() { return cartId; }
 
     public double getTotalCartValue() { return totalCartValue;}
 
@@ -38,13 +39,5 @@ public class Cart implements Serializable {
     }
 
 
-    public double calculateCartValue() {
-        double totalCartValue = 0;
-
-        for(CartItem cartItem : cartItems.values()){
-            totalCartValue += cartItem.getTotal();
-        }
-        return this.totalCartValue = totalCartValue;
-    }
 
 }

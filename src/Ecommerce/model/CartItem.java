@@ -5,24 +5,28 @@ import java.io.Serializable;
 
 public class CartItem implements Serializable {
 
+
+    private String cartId;
     private String productId;
     private int quantity;
 
     private double total;
 
-    private Product prodToAdd ;
+
 
     // Constructors, getters, setters, and other methods
 
     public CartItem(){
 
     }
-    public CartItem(String productId, int quantity, double total){
+    public CartItem(String cartId, String productId, int quantity, double total){
+        this.cartId = cartId;
         this.productId = productId;
         this.quantity = quantity;
         this.total = total;
     }
 
+    public String getCartId(){ return cartId;}
     public String getProductId() {
         return productId;
     }
@@ -36,6 +40,7 @@ public class CartItem implements Serializable {
 
     public double getTotal() { return total;}
 
+    public void setCartId(String cartId) { this.cartId = cartId; }
     public void setProductId(String productId) {
         this.productId = productId;
     }

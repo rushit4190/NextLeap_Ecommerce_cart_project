@@ -2,6 +2,8 @@ package Ecommerce.serviceImpl;
 
 import Ecommerce.model.Product;
 import Ecommerce.service.ProductDBInterface;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -79,14 +81,14 @@ public class ProductCsvDB implements ProductDBInterface {
         this.DBfilePath = path;
     }
 
-    private Product getProductByIdSerially(String prodId){
+    private @Nullable Product getProductByIdSerially(String prodId){
         if(DBfilePath.isEmpty()){
             System.out.println("No file found at given filePath. Assign correct filePath for Product Catalog.");
         }
         else{
             try (BufferedReader reader = new BufferedReader(new FileReader(DBfilePath))) {
                 String line;
-                Product product = null;
+                Product product;
                 while ((line = reader.readLine()) != null) {
                     String[] fields = line.split(",");
                     if (fields.length >= 6) {
@@ -114,7 +116,7 @@ public class ProductCsvDB implements ProductDBInterface {
         return null;
     }
 
-    private List<Product> searchProductDBSerially(String searchTerm){
+    private @Nullable List<Product> searchProductDBSerially(String searchTerm){
         if(DBfilePath.isEmpty()){
             System.out.println("No file found at given filePath. Assign correct filePath for Product Catalog.");
 
@@ -124,7 +126,7 @@ public class ProductCsvDB implements ProductDBInterface {
             List<Product> searchResults = new ArrayList<>();
             try (BufferedReader reader = new BufferedReader(new FileReader(DBfilePath))) {
                 String line;
-                Product product = null;
+                Product product ;
                 while ((line = reader.readLine()) != null) {
                     String[] fields = line.split(",");
                     if (fields.length >= 6) {
@@ -155,7 +157,7 @@ public class ProductCsvDB implements ProductDBInterface {
         return null;
     }
 
-    private String updateProductDBSerially(String productId, int quantity){
+    private @NotNull String updateProductDBSerially(String productId, int quantity){
         if(DBfilePath.isEmpty()){
             System.out.println("No file found at given filePath. Assign correct filePath for Product Catalog.");
         }
@@ -220,7 +222,7 @@ public class ProductCsvDB implements ProductDBInterface {
         return "Product DB Update operation unsuccessfull";
     }
 
-    private List<Product> getAllProductsSerially(){
+    private @Nullable List<Product> getAllProductsSerially(){
         if(DBfilePath.isEmpty()){
             System.out.println("No file found at given filePath. Assign correct filePath for Product Catalog.");
         }
@@ -229,7 +231,7 @@ public class ProductCsvDB implements ProductDBInterface {
             List<Product> allProducts = new ArrayList<>();
             try (BufferedReader reader = new BufferedReader(new FileReader(DBfilePath))) {
                 String line;
-                Product product = null;
+                Product product ;
                 while ((line = reader.readLine()) != null) {
                     String[] fields = line.split(",");
                     if (fields.length >= 6) {

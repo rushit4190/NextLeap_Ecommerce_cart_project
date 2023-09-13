@@ -2,6 +2,7 @@ package Ecommerce.serviceImpl;
 
 import Ecommerce.model.User;
 import Ecommerce.service.UserDBInterface;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.*;
 import java.util.concurrent.*;
@@ -13,7 +14,6 @@ public class UserCsvDB implements UserDBInterface {
     private UserCsvDB(){
 
     }
-
     private static class Loader {
         final private static UserCsvDB INSTANCE = new UserCsvDB();
     }
@@ -27,7 +27,6 @@ public class UserCsvDB implements UserDBInterface {
     public Integer addUser(User user) {
         try {
             Future<Integer> future = userCsvWriteDBExe.submit(() -> addUserSerially(user));
-            userCsvWriteDBExe.shutdown();
             return future.get(); // This blocks until the result is available
         } catch (InterruptedException | ExecutionException e) {
             // Handle exceptions appropriately
@@ -61,12 +60,6 @@ public class UserCsvDB implements UserDBInterface {
         }
     }
 
-
-
-//    @Override
-//    public User getUserDetails(String email, String password) {
-//        return null;
-//    }
 
     @Override
     public void setDBFilePath(String path){
@@ -102,7 +95,7 @@ public class UserCsvDB implements UserDBInterface {
     }
 
 
-    private User getUserByIdSerially(String checkUserId){
+    private @Nullable User getUserByIdSerially(String checkUserId){
         //get User info by Id
 
         if(DBfilePath.isEmpty()){
@@ -111,7 +104,7 @@ public class UserCsvDB implements UserDBInterface {
         else{
             try (BufferedReader reader = new BufferedReader(new FileReader(DBfilePath))) {
                 String line;
-                User user = null;
+                User user ;
                 while ((line = reader.readLine()) != null) {
                     String[] fields = line.split(",");
                     //To ensure no corrupted line is read.
@@ -140,7 +133,7 @@ public class UserCsvDB implements UserDBInterface {
         return null;
     }
 
-    private User getUserByEmailSerially(String checkEmail){
+    private @Nullable User getUserByEmailSerially(String checkEmail){
         //get User info by Email
         if(DBfilePath.isEmpty()){
             System.out.println("No file found at given filePath. Assign correct filePath for User CSV.");
@@ -148,7 +141,7 @@ public class UserCsvDB implements UserDBInterface {
         else{
             try (BufferedReader reader = new BufferedReader(new FileReader(DBfilePath))) {
                 String line;
-                User user = null;
+                User user ;
                 while ((line = reader.readLine()) != null) {
                     String[] fields = line.split(",");
                     //To ensure no corrupted line is read.

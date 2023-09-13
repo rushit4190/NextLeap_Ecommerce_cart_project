@@ -11,14 +11,14 @@
 18,Shirt_yellow,Out of Stock,500.0,50.0,null
 19,Shirt_pink,Available,450.0,0.0,5
 1,T-shirt_red,Available,300.0,20.0,15
-2,T-shirt_blue,Available,350.0,30.0,5
+2,T-shirt_blue,Available,350.0,30.0,10
 3,T-shirt_black,Available,500.0,40.0,20
-4,T-shirt_pink,Available,400.0,30.0,5
+4,T-shirt_pink,Out of Stock,400.0,30.0,null
 5,T-shirt_green,Out of Stock,500.0,80.0,null
 6,T-shirt_white,Available,600.0,50.0,10
 7,Jean_lightBlue,Available,800.0,30.0,10
 8,Jean_darkBlue,Available,900.0,50.0,30
-9,Jean_grey,Available,1000.0,70.0,5
+9,Jean_grey,Available,1000.0,70.0,10
 20,Formal_black,Available,1000.0,50.0,20
 10,Jean_brown,Available,1200.0,100.0,5
 21,Formal_blue,Available,1100.0,150.0,15

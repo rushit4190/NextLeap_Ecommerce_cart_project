@@ -8,6 +8,8 @@ There are three entities to be kept persistent - User, Product Catalog and Cart 
 - Cart is assigned to each user (upon adding the first product item) based on User Id.
 - User can add product items, update quantity of a particular item, remove item and view all of the items present in the cart.
 
-Application is designed to handle concurrency. Databases of User, Cart and Product are ensured to be persistent.
+Application is designed to handle concurrency. Databases of User, Cart and Product are ensured to be persistent. SessionId data is not kept to be persistent.
+User gets the sessionId on sign in, and uses it for cart operations.
 
 The first commit of this project (till MileStone 4) has CSV files as databases. It is a command line application.
+
