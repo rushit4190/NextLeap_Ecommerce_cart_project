@@ -1,0 +1,46 @@
+-- User table schema
+CREATE TABLE Users (
+    UserID TEXT PRIMARY KEY,
+    FirstName TEXT NOT NULL,
+    LastName TEXT NOT NULL,
+    Email TEXT UNIQUE NOT NULL,
+    Password TEXT NOT NULL,
+);
+
+-- Product table schema
+CREATE TABLE Products (
+    ProductID TEXT PRIMARY KEY,
+    Name TEXT NOT NULL,
+    InventoryStatus TEXT CHECK (InventoryStatus IN ('Available', 'Out of Stock')) NOT NULL,
+    MRPPrice NUMERIC(10, 2) NOT NULL,
+    Discount NUMERIC(5, 2) NOT NULL,
+    MaxQuantityAllowed INTEGER,
+    UNIQUE(Name)
+);
+
+-- CartItem table schema
+CREATE TABLE CartItems (
+    CartItemID INTEGER PRIMARY KEY AUTOINCREMENT,
+    CartID TEXT NOT NULL,
+    ProductID TEXT NOT NULL,
+    Quantity INTEGER NOT NULL,
+    TotalCost NUMERIC(10, 2) NOT NULL,
+    FOREIGN KEY (CartID) REFERENCES Carts(CartID),
+    FOREIGN KEY (ProductID) REFERENCES Products(ProductID)
+);
+
+-- Cart table schema
+CREATE TABLE Carts (
+    CartID TEXT PRIMARY KEY,
+    UserID TEXT NOT NULL,
+    FOREIGN KEY (UserID) REFERENCES Users(UserID)
+);
+
+
+The Users table stores information about users, including their UserID, FirstName, LastName, Email, and Password.
+
+The Products table stores information about products, including their ProductID, Name, InventoryStatus, MRPPrice, Discount, and MaxQuantityAllowed. The Name field is marked as UNIQUE to ensure product names are unique.
+
+The CartItems table stores individual cart items, including CartItemID, CartID, ProductID, Quantity, and TotalCost. It has foreign key constraints referencing the Carts and Products tables.
+
+The Carts table includes CartID, UserID. It represents a user's shopping cart. It has a foreign key constraint referencing the Users table.

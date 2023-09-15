@@ -11,5 +11,6 @@ There are three entities to be kept persistent - User, Product Catalog and Cart 
 Application is designed to handle concurrency. Databases of User, Cart and Product are ensured to be persistent. SessionId data is not kept to be persistent.
 User gets the sessionId on sign in, and uses it for cart operations.
 
-The first commit of this project (till MileStone 4) has CSV files as databases. It is a command line application.
+The first part of this project (till MileStone 4) has CSV files as databases. It is a command line application.
+The second part of this project (MileStone 5) has to introduce JDBC using SQLite Database. Data-Modeling and explaination can be found in Database Schema file.
 
