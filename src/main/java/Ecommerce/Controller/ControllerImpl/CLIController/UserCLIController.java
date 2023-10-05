@@ -1,4 +1,4 @@
-package Ecommerce.ControllerImpl.CLIController;
+package Ecommerce.Controller.ControllerImpl.CLIController;
 
 import Ecommerce.Controller.UserController;
 import Ecommerce.customExceptions.SessionExpiredException;
@@ -7,7 +7,7 @@ import Ecommerce.customExceptions.UserNotFoundException;
 import Ecommerce.model.SessionInfo;
 import Ecommerce.model.User;
 import Ecommerce.service.UserDBInterface;
-import Ecommerce.serviceImpl.SessionInfoInMemDB;
+import Ecommerce.service.serviceImpl.SessionInfoInMemDB;
 
 import java.util.UUID;
 

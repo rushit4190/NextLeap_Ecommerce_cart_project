@@ -3,19 +3,19 @@ package Ecommerce;
 import Ecommerce.Controller.CartController;
 import Ecommerce.Controller.ProductController;
 import Ecommerce.Controller.UserController;
-import Ecommerce.ControllerImpl.CLIController.CartCLIController;
-import Ecommerce.ControllerImpl.CLIController.ProductCLIController;
-import Ecommerce.ControllerImpl.CLIController.UserCLIController;
+import Ecommerce.Controller.ControllerImpl.CLIController.CartCLIController;
+import Ecommerce.Controller.ControllerImpl.CLIController.ProductCLIController;
+import Ecommerce.Controller.ControllerImpl.CLIController.UserCLIController;
 import Ecommerce.customExceptions.*;
 import Ecommerce.service.CartDBInterface;
 import Ecommerce.service.CartItemDBInterface;
 import Ecommerce.service.ProductDBInterface;
 import Ecommerce.service.UserDBInterface;
 
-import Ecommerce.serviceImpl.SQLiteServiceImpl.CartItemSQLiteDB;
-import Ecommerce.serviceImpl.SQLiteServiceImpl.CartSQLiteDB;
-import Ecommerce.serviceImpl.SQLiteServiceImpl.ProductSQLiteDB;
-import Ecommerce.serviceImpl.SQLiteServiceImpl.UserSQLiteDB;
+import Ecommerce.service.serviceImpl.SQLiteServiceImpl.CartItemSQLiteDB;
+import Ecommerce.service.serviceImpl.SQLiteServiceImpl.CartSQLiteDB;
+import Ecommerce.service.serviceImpl.SQLiteServiceImpl.ProductSQLiteDB;
+import Ecommerce.service.serviceImpl.SQLiteServiceImpl.UserSQLiteDB;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

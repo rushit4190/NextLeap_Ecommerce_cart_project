@@ -1,4 +1,4 @@
-package Ecommerce.serviceImpl;
+package Ecommerce.service.serviceImpl;
 
 import Ecommerce.model.User;
 import Ecommerce.service.UserDBInterface;

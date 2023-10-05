@@ -1,16 +1,17 @@
-package Ecommerce.serviceImpl.SQLiteServiceImpl;
+package Ecommerce.service.serviceImpl.SQLiteServiceImpl;
 
 import Ecommerce.model.User;
 import Ecommerce.service.UserDBInterface;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.springframework.stereotype.Service;
 
 import java.sql.*;
 import java.util.concurrent.*;
 
+@Service
 public class UserSQLiteDB implements UserDBInterface {
     ExecutorService userSQLiteWriteDBExe = Executors.newFixedThreadPool(1);
-    private String JDBCpath = "";
+    private String JDBCpath = "jdbc:sqlite:D:/study/Coding/NextLeap/E-Commerce_Cart/Ecommerce_cart.db";
     private UserSQLiteDB(){
 
     }
@@ -85,7 +86,7 @@ public class UserSQLiteDB implements UserDBInterface {
         }
     }
 
-    private @NotNull int addUserSQLite(User user){
+    private int addUserSQLite(User user){
         if(JDBCpath.isEmpty()){
             System.out.println(" JDBC url for Users table is empty");
         }

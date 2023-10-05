@@ -1,17 +1,19 @@
-package Ecommerce.serviceImpl.SQLiteServiceImpl;
+package Ecommerce.service.serviceImpl.SQLiteServiceImpl;
 
 import Ecommerce.model.Cart;
 import Ecommerce.service.CartDBInterface;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.springframework.stereotype.Service;
 
 import java.sql.*;
 import java.util.concurrent.*;
 
+@Service
 public class CartSQLiteDB implements CartDBInterface {
     ExecutorService cartSQLiteWriteExe = Executors.newFixedThreadPool(1);
 
-    String JDBCpath = "";
+    String JDBCpath = "jdbc:sqlite:D:/study/Coding/NextLeap/E-Commerce_Cart/Ecommerce_cart.db";
 
     private CartSQLiteDB(){
 

@@ -1,4 +1,4 @@
-package Ecommerce.serviceImpl.CsvServiceImpl;
+package Ecommerce.service.serviceImpl.CsvServiceImpl;
 
 import Ecommerce.model.Product;
 import Ecommerce.service.ProductDBInterface;

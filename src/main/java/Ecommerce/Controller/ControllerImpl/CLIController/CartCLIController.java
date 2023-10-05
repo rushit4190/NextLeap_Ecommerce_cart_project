@@ -1,4 +1,4 @@
-package Ecommerce.ControllerImpl.CLIController;
+package Ecommerce.Controller.ControllerImpl.CLIController;
 
 import Ecommerce.Controller.CartController;
 import Ecommerce.customExceptions.CartItemNotAvail;
@@ -11,7 +11,7 @@ import Ecommerce.model.Product;
 import Ecommerce.service.CartDBInterface;
 import Ecommerce.service.CartItemDBInterface;
 import Ecommerce.service.ProductDBInterface;
-import Ecommerce.serviceImpl.SessionInfoInMemDB;
+import Ecommerce.service.serviceImpl.SessionInfoInMemDB;
 
 
 import java.util.List;

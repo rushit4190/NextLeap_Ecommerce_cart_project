@@ -1,4 +1,4 @@
-package Ecommerce.serviceImpl;
+package Ecommerce.service.serviceImpl;
 
 import Ecommerce.customExceptions.SessionExpiredException;
 import Ecommerce.model.SessionInfo;
@@ -6,8 +6,6 @@ import Ecommerce.service.SessionInfoDBInterface;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class SessionInfoInMemDB implements SessionInfoDBInterface {
 

@@ -1,4 +1,4 @@
-package Ecommerce.ControllerImpl.CLIController;
+package Ecommerce.Controller.ControllerImpl.CLIController;
 
 import Ecommerce.Controller.ProductController;
 import Ecommerce.customExceptions.ProductNotFound;

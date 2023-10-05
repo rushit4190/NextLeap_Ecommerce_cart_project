@@ -12,5 +12,14 @@ Application is designed to handle concurrency. Databases of User, Cart and Produ
 User gets the sessionId on sign in, and uses it for cart operations.
 
 The first part of this project (till MileStone 4) has CSV files as databases. It is a command line application.
-The second part of this project (MileStone 5) has to introduce JDBC using SQLite Database. Data-Modeling and explaination can be found in Database Schema file.
+The second part of this project (MileStone 5) is to introduce JDBC using SQLite Database. Data-Modeling and explanation can be found in Database Schema file.
+The third and last part of this project (MileStone 7) is to define the REST API Specifications using Swagger/Open API that will be required to move this service to a Web Service.
+In addition, the APIs defined in the last part are implemented using SpringBoot and tested using PostMan.
+
+Project Structure - 
+In src/main/java/Ecommerce package, there are following subpackages :-
+
+- model - Definitions of User, Product, Cart and CartItem POJOs 
+- service - Database operation interfaces and their concrete implementations (For CSV files and SQLite database) 
+- controller - 
 
