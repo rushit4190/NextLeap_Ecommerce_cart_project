@@ -4,7 +4,7 @@ import Ecommerce.Controller.ProductController;
 import Ecommerce.customExceptions.ProductNotFound;
 import Ecommerce.customExceptions.QuanitityNotAvailException;
 import Ecommerce.model.Product;
-import Ecommerce.service.ProductDBInterface;
+import Ecommerce.Repository.ProductDBInterface;
 
 import java.util.List;
 

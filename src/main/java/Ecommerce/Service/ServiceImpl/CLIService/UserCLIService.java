@@ -6,8 +6,8 @@ import Ecommerce.customExceptions.UserAlreadyExistsException;
 import Ecommerce.customExceptions.UserNotFoundException;
 import Ecommerce.model.SessionInfo;
 import Ecommerce.model.User;
-import Ecommerce.service.UserDBInterface;
-import Ecommerce.service.serviceImpl.SessionInfoInMemDB;
+import Ecommerce.Repository.UserDBInterface;
+import Ecommerce.Repository.RepositoryImpl.SessionInfoInMemDB;
 
 import java.util.UUID;
 

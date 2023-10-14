@@ -8,10 +8,10 @@ import Ecommerce.customExceptions.SessionExpiredException;
 import Ecommerce.model.Cart;
 import Ecommerce.model.CartItem;
 import Ecommerce.model.Product;
-import Ecommerce.service.CartDBInterface;
-import Ecommerce.service.CartItemDBInterface;
-import Ecommerce.service.ProductDBInterface;
-import Ecommerce.service.serviceImpl.SessionInfoInMemDB;
+import Ecommerce.Repository.CartDBInterface;
+import Ecommerce.Repository.CartItemDBInterface;
+import Ecommerce.Repository.ProductDBInterface;
+import Ecommerce.Repository.RepositoryImpl.SessionInfoInMemDB;
 
 
 import java.util.List;
