@@ -1,21 +1,21 @@
 package Ecommerce;
 
-import Ecommerce.Controller.CartController;
-import Ecommerce.Controller.ProductController;
-import Ecommerce.Controller.UserController;
-import Ecommerce.Controller.ControllerImpl.CLIController.CartCLIController;
-import Ecommerce.Controller.ControllerImpl.CLIController.ProductCLIController;
-import Ecommerce.Controller.ControllerImpl.CLIController.UserCLIController;
+import Ecommerce.Service.CartService;
+import Ecommerce.Service.ProductService;
+import Ecommerce.Service.UserService;
+import Ecommerce.Service.ServiceImpl.CLIService.CartCLIService;
+import Ecommerce.Service.ServiceImpl.CLIService.ProductCLIService;
+import Ecommerce.Service.ServiceImpl.CLIService.UserCLIService;
 import Ecommerce.customExceptions.*;
-import Ecommerce.service.CartDBInterface;
-import Ecommerce.service.CartItemDBInterface;
-import Ecommerce.service.ProductDBInterface;
-import Ecommerce.service.UserDBInterface;
+import Ecommerce.Repository.CartDBInterface;
+import Ecommerce.Repository.CartItemDBInterface;
+import Ecommerce.Repository.ProductDBInterface;
+import Ecommerce.Repository.UserDBInterface;
 
-import Ecommerce.service.serviceImpl.SQLiteServiceImpl.CartItemSQLiteDB;
-import Ecommerce.service.serviceImpl.SQLiteServiceImpl.CartSQLiteDB;
-import Ecommerce.service.serviceImpl.SQLiteServiceImpl.ProductSQLiteDB;
-import Ecommerce.service.serviceImpl.SQLiteServiceImpl.UserSQLiteDB;
+import Ecommerce.Repository.RepositoryImpl.SQLiteRepoImpl.CartItemSQLiteDB;
+import Ecommerce.Repository.RepositoryImpl.SQLiteRepoImpl.CartSQLiteDB;
+import Ecommerce.Repository.RepositoryImpl.SQLiteRepoImpl.ProductSQLiteDB;
+import Ecommerce.Repository.RepositoryImpl.SQLiteRepoImpl.UserSQLiteDB;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -57,9 +57,9 @@ public class Main_JDBC {
             System.err.println("Interrupted while waiting for data loading tasks to complete.");
         }
 
-        UserController userCLIcontroller = new UserCLIController(userSQLiteDB);
-        ProductController prodCLIcontroller = new ProductCLIController(productSQLiteDB);
-        CartController cartCLIcontroller = new CartCLIController(cartSQLiteDB, productSQLiteDB, cartItemSQLiteDB);
+        UserService userCLIcontroller = new UserCLIService(userSQLiteDB);
+        ProductService prodCLIcontroller = new ProductCLIService(productSQLiteDB);
+        CartService cartCLIcontroller = new CartCLIService(cartSQLiteDB, productSQLiteDB, cartItemSQLiteDB);
 
 //         We can use this with ThreadLocal Class
 //        ThreadLocal<String> sessionId1 = new ThreadLocal<>();
@@ -186,8 +186,8 @@ public class Main_JDBC {
                         String sessionId = scanner.nextLine();
 
                         try{
-                           String response = cartCLIcontroller.getCartItems(sessionId);
-                           System.out.println(response);
+                           cartCLIcontroller.getCartItems(sessionId);
+
 
                         } catch (SessionExpiredException | CartItemNotAvail e) {
                             System.out.println(e.getMessage());

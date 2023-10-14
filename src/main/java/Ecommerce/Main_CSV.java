@@ -1,20 +1,20 @@
 package Ecommerce;
 
-import Ecommerce.Controller.CartController;
-import Ecommerce.Controller.ProductController;
-import Ecommerce.Controller.UserController;
-import Ecommerce.Controller.ControllerImpl.CLIController.CartCLIController;
-import Ecommerce.Controller.ControllerImpl.CLIController.ProductCLIController;
-import Ecommerce.Controller.ControllerImpl.CLIController.UserCLIController;
+import Ecommerce.Service.CartService;
+import Ecommerce.Service.ProductService;
+import Ecommerce.Service.UserService;
+import Ecommerce.Service.ServiceImpl.CLIService.CartCLIService;
+import Ecommerce.Service.ServiceImpl.CLIService.ProductCLIService;
+import Ecommerce.Service.ServiceImpl.CLIService.UserCLIService;
 import Ecommerce.customExceptions.*;
-import Ecommerce.service.CartDBInterface;
-import Ecommerce.service.CartItemDBInterface;
-import Ecommerce.service.ProductDBInterface;
-import Ecommerce.service.UserDBInterface;
-import Ecommerce.service.serviceImpl.CsvServiceImpl.CartCsvDB;
-import Ecommerce.service.serviceImpl.CsvServiceImpl.CartItemCsvDB;
-import Ecommerce.service.serviceImpl.CsvServiceImpl.ProductCsvDB;
-import Ecommerce.service.serviceImpl.CsvServiceImpl.UserCsvDB;
+import Ecommerce.Repository.CartDBInterface;
+import Ecommerce.Repository.CartItemDBInterface;
+import Ecommerce.Repository.ProductDBInterface;
+import Ecommerce.Repository.UserDBInterface;
+import Ecommerce.Repository.RepositoryImpl.CsvRepoImpl.CartCsvDB;
+import Ecommerce.Repository.RepositoryImpl.CsvRepoImpl.CartItemCsvDB;
+import Ecommerce.Repository.RepositoryImpl.CsvRepoImpl.ProductCsvDB;
+import Ecommerce.Repository.RepositoryImpl.CsvRepoImpl.UserCsvDB;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -55,9 +55,9 @@ public class Main_CSV {
             System.err.println("Interrupted while waiting for data loading tasks to complete.");
         }
 
-        UserController userCLIcontroller = new UserCLIController(userCSVdb);
-        ProductController prodCLIcontroller = new ProductCLIController(prodCSVdb);
-        CartController cartCLIcontroller = new CartCLIController(cartCSVdb, prodCSVdb, cartItemCSVdb);
+        UserService userCLIcontroller = new UserCLIService(userCSVdb);
+        ProductService prodCLIcontroller = new ProductCLIService(prodCSVdb);
+        CartService cartCLIcontroller = new CartCLIService(cartCSVdb, prodCSVdb, cartItemCSVdb);
 
 //         We can use this with ThreadLocal Class
 //        ThreadLocal<String> sessionId1 = new ThreadLocal<>();
@@ -184,8 +184,8 @@ public class Main_CSV {
                         String sessionId = scanner.nextLine();
 
                         try{
-                           String response = cartCLIcontroller.getCartItems(sessionId);
-                           System.out.println(response);
+                           cartCLIcontroller.getCartItems(sessionId);
+
 
                         } catch (SessionExpiredException | CartItemNotAvail e) {
                             System.out.println(e.getMessage());

@@ -44,6 +44,7 @@ insert into "Carts" ("CartID", "UserID") values ("Cc94325e1-51b8-4b00-a539-fb352
 
 select * FROM "Users";
 select * FROM "CartItems";
+select * FROM "Carts";
 
 insert into "CartItems" ("CartID", "ProductID", "Quantity", "TotalCost") values ("Cc94325e1-51b8-4b00-a539-fb352dbcc207", "4", 5, 1850.0);
 select * FROM "CartItems";

@@ -1,10 +1,12 @@
 This is a basic E-commerce cart application-
 
-There are three entities to be kept persistent - User, Product Catalog and Cart Catalog.
+### **Functional Requirements**
+
+There are three entities to be kept persistent - User, Product-Catalog and Cart-Catalog.
 
 - User can sign up, sign in and sign out.
 - Sign in generates a unique Session ID (UUID) which has timeout of 30 min
-- User can view product catalog, search catalog based on search term.
+- User(without sign up) can view product catalog, search catalog based on search term.
 - Cart is assigned to each user (upon adding the first product item) based on User Id.
 - User can add product items, update quantity of a particular item, remove item and view all of the items present in the cart.
 
@@ -16,10 +18,19 @@ The second part of this project (MileStone 5) is to introduce JDBC using SQLite 
 The third and last part of this project (MileStone 7) is to define the REST API Specifications using Swagger/Open API that will be required to move this service to a Web Service.
 In addition, the APIs defined in the last part are implemented using SpringBoot and tested using PostMan.
 
-Project Structure - 
-In src/main/java/Ecommerce package, there are following subpackages :-
+### **Project Structure -** 
+
+Application is designed for 3 different usage - 
+
+1. Main_CSV - Command line interface with CSV file as database
+2. Main-JDBC - Command line interface with SQLite DB as database
+3. Main_WebAPI - Built on top of command line interface with SQLite DB as database, use APIs available (check EcomCartServiceAPIs.yaml file) with help of PostMan( or similar).
+
+
+In src/main/java/Ecommerce package, there are following major subpackages :-
 
 - model - Definitions of User, Product, Cart and CartItem POJOs 
-- service - Database operation interfaces and their concrete implementations (For CSV files and SQLite database) 
-- controller - 
+- repository - Database operation interfaces and their concrete implementations (For CSV files and SQLite database) 
+- service - Business logic with respect to aforementioned functional requirement of the application.
+- controller - To interact with the web requests.
 
